@@ -2,15 +2,20 @@ import React from 'react';
 import Home from '../../screens/Home';
 import { createStackNavigator } from '@react-navigation/stack';
 import DetailScreen from '../../screens/DetailScreen';
+import { Movie } from '../../interfaces/MovieInterface';
 
-const Stack = createStackNavigator();
+export type RootStackParamList = {
+  Home: undefined;
+  DetailScreen: Movie;
+};
+
+const Stack = createStackNavigator<RootStackParamList>();
 
 export const StackNavigator = () => {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerShown: true,
-        title: 'Bienvenido',
+        headerShown: false,
         cardStyle: {
           backgroundColor: 'white',
         },
