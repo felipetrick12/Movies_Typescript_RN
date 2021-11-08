@@ -32,6 +32,7 @@ const HorizontalSlider = ({ title, movies }: Props) => {
         )}
         horizontal={true}
         showsHorizontalScrollIndicator={false}
+        keyExtractor={(item) => item.id.toString()}
       />
     </View>
   );

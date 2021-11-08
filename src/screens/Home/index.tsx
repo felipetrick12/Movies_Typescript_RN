@@ -25,7 +25,7 @@ const Home = () => {
     isLoading,
   } = useMovies();
   const { top } = useSafeAreaInsets();
-  const { width, height } = Dimensions.get('window');
+  const { width } = Dimensions.get('window');
   if (isLoading) {
     return (
       <View>

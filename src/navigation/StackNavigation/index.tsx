@@ -16,9 +16,6 @@ export const StackNavigator = () => {
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
-        cardStyle: {
-          backgroundColor: 'white',
-        },
       }}>
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="DetailScreen" component={DetailScreen} />

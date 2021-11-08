@@ -19,16 +19,29 @@ export const styles = StyleSheet.create({
   image: {
     flex: 1,
   },
-  body: {
+  body: { marginTop: 10, marginHorizontal: 20 },
+  body2: {
+    flexDirection: 'row',
     marginTop: 10,
     marginHorizontal: 20,
+    alignItems: 'center',
   },
   title: {
-    fontSize: 16,
+    fontSize: 13,
+    lineHeight: 15,
   },
   subTitle: {
     fontSize: 20,
     fontWeight: 'bold',
     color: 'black',
+    marginBottom: 5,
+    lineHeight: 25,
+  },
+  img: {
+    position: 'absolute',
+    zIndex: 999,
+    elevation: 9,
+    top: 20,
+    left: 15,
   },
 });

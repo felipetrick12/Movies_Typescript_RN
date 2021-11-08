@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { View } from 'react-native';
+import { useEffect, useState } from 'react';
 import MovieDB from '../../api';
 import { Movie, MovieDBNowResponse } from '../../interfaces/MovieInterface';
 
@@ -10,7 +9,12 @@ interface MoviesState {
   moviesUpcoming: Movie[];
 }
 const useMovies = () => {
-  const [moviesState, setMoviesState] = useState<MoviesState>();
+  const [moviesState, setMoviesState] = useState<MoviesState>({
+    moviesCurrent: [],
+    moviesPopular: [],
+    moviesRated: [],
+    moviesUpcoming: [],
+  });
   const [isLoading, setIsLoading] = useState(true);
 
   const getMovies = async () => {
