@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import {
   ActivityIndicator,
   Dimensions,
   Image,
   ScrollView,
+  StyleSheet,
   Text,
   TouchableOpacity,
   View,
@@ -16,6 +17,9 @@ import { styles } from './styles';
 import useMoviesDetails from '../../hooks/useMoviesDetails';
 import DetailsMovie from '../../components/DetailsMovie';
 import Icon from 'react-native-vector-icons/Ionicons';
+import LinearGradient from 'react-native-linear-gradient';
+import { GradientContext } from '../../context/GradientContext';
+import { getImageColor } from '../../helpers/getImageColor';
 
 interface Props extends StackScreenProps<RootStackParamList, 'DetailScreen'> {}
 
@@ -26,9 +30,16 @@ const DetailScreen = ({ route, navigation }: Props) => {
   const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
 
   const { isLoading, cast, movieFull } = useMoviesDetails(movie.id);
+  const { previosColor } = useContext(GradientContext);
 
   return (
     <ScrollView>
+      <LinearGradient
+        colors={[previosColor.primary, previosColor.secondary, 'white']}
+        style={{ ...StyleSheet.absoluteFillObject }}
+        start={{ x: 1, y: 0.1 }}
+        end={{ x: 0.9, y: 0.8 }}
+      />
       <View style={[styles.imageContainer, { height: screenHeight * 0.7 }]}>
         <Image source={{ uri }} style={styles.image} />
       </View>
